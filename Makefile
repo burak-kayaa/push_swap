@@ -11,7 +11,7 @@ NAME	= push_swap
 LIB		= libftprintf.a
 
 all: $(NAME)
-	
+	clear
 
 $(NAME): $(OBJS) $(LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
