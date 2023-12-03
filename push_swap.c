@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/03 01:32:07 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:39:31 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sort_list(a_stack, b_stack);
+	while ((*a_stack))
+	{
+		printf("%d\n", (*a_stack)->nbr);
+		(*a_stack) = (*a_stack)->next;
+	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/03 01:31:48 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/03 16:39:01 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,20 @@ t_stack	*ft_lstnew(int nbr);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **alst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
+int		get_min_value(t_stack **a_stack);
 // ------------------
 
+// SORT FUNCS
 void	sort_list(t_stack **a_stack, t_stack **b_stack);
+void	sort_3(t_stack **a_stack, t_stack **b_stack);
+void	sort_4(t_stack **a_stack, t_stack **b_stack, int min_value);
+void	sort_5(t_stack **a_stack, t_stack **b_stack, int min_value);
+// --------------------
 
 // MOVES
 void	sa(t_stack **a_stack);
 void	sb(t_stack **b_stack);
 int		swap(t_stack **stack);
-void	sort_3(t_stack **a_stack, t_stack **b_stack);
 void	ra(t_stack **a_stack);
 void	rb(t_stack **b_stack);
 void	pb(t_stack **a_stack, t_stack **b_stack);
