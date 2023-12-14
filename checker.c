@@ -6,39 +6,37 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:40 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/03 01:32:17 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:36:23 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_nbr(int argc, char **argv)
+int	ft_count(char **split)
 {
-	int		i;
-	int		j;
-	char	**args;
+	int	i;
 
-	if (argc == 2)
-	{
-		args = ft_split(argv[1], ' ');
-		i = 0;
-	}
-	else
-	{
-		args = argv;	
-		i = 1;
-	}
+	i = 0;
+	while (split[i])
+		i++;
+	return (i);
+}
+
+int	is_nbr(int argc, char **argv, int i)
+{
+	int		j;
+
 	while (i < argc)
 	{
 		j = 0;
-		while (args[i][j])
+		while (argv[i][j])
 		{
-			if (args[i][0] == '-')
+			if (argv[i][0] == '-')
 			{
 				j++;
 				break ;
 			}
-			if (args[i][j] <= '9' && args[i][j] >= '0')
+			if (argv[i][j] <= '9' && argv[i][j] >= '0')
 				j++;
 			else
 				return (0);
@@ -48,12 +46,10 @@ int	is_nbr(int argc, char **argv)
 	return (1);
 }
 
-int	is_dupe(char **argv, int argc)
+int	is_dupe(char **argv, int argc, int i)
 {
-	int	i;
 	int	j;
 
-	i = 1;
 	while (i < argc)
 	{
 		j = i + 1;
@@ -68,12 +64,10 @@ int	is_dupe(char **argv, int argc)
 	return (1);
 }
 
-int	is_in_limit(int argc, char **argv)
+int	is_in_limit(int argc, char **argv, int i)
 {
-	int	i;
 	int	tmp;
 
-	i = 0;
 	while (i < argc - 1)
 	{
 		tmp = ft_atoi(argv[i + 1]);

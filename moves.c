@@ -6,17 +6,17 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/03 01:32:59 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 14:14:26 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_stack **stack)
+int	swap(t_stack_node **stack)
 {
 	int		tmp;
-	t_stack	*head;
-	t_stack	*next;
+	t_stack_node	*head;
+	t_stack_node	*next;
 
 	head = *stack;
 	next = head->next;
@@ -28,7 +28,7 @@ int	swap(t_stack **stack)
 	return (1);
 }
 
-void	sa(t_stack **a_stack)
+void	sa(t_stack_node **a_stack)
 {
 	if (!(*a_stack))
 		exit(0);
@@ -36,7 +36,7 @@ void	sa(t_stack **a_stack)
 	ft_putendl_fd("sa", 1);
 }
 
-void	sb(t_stack **b_stack)
+void	sb(t_stack_node **b_stack)
 {
 	if (!(*b_stack))
 		exit(0);
@@ -44,10 +44,10 @@ void	sb(t_stack **b_stack)
 	ft_putendl_fd("sb", 1);
 }
 
-void	ra(t_stack **a_stack)
+void	ra(t_stack_node **a_stack, bool i)
 {
-	t_stack	*last;
-	t_stack	*first;
+	t_stack_node	*last;
+	t_stack_node	*first;
 
 	if (*a_stack == NULL || (*a_stack)->next == NULL)
 		return ;
@@ -58,14 +58,15 @@ void	ra(t_stack **a_stack)
 	(*a_stack) = first->next;
 	first->next = NULL;
 	last->next = first;
-	ft_putendl_fd("ra", 1);
+	if (i == true)
+		ft_putendl_fd("ra", 1);
 	return ;
 }
 
-void	rb(t_stack **b_stack)
+void	rb(t_stack_node **b_stack, bool i)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_stack_node	*first;
+	t_stack_node	*last;
 
 	if (*b_stack == NULL || (*b_stack)->next == NULL)
 		return ;
@@ -76,6 +77,14 @@ void	rb(t_stack **b_stack)
 	(*b_stack) = first->next;
 	first->next = NULL;
 	last->next = first;
-	ft_putendl_fd("rb", 1);
+	if (i == true)
+		ft_putendl_fd("rb", 1);
 	return ;
+}
+
+void	rr(t_stack_node **a_stack, t_stack_node **b_stack)
+{
+	ra(a_stack, false);
+	rb(b_stack, false);
+	ft_putendl_fd("rr", 1);
 }

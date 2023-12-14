@@ -1,4 +1,4 @@
-SRCS	=  checker.c push_swap.c lst_funcs.c moves.c sort_list.c small_sort.c moves2.c
+SRCS	=  push_swap.c checker.c lst_funcs.c moves.c moves2.c sort_list.c sort_stacks.c init_a_to_b.c init_b_to_a.c sorting_utils.c 
 
 OBJS	= $(SRCS:.c=.o)
 
