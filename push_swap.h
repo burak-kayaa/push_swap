@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:20:33 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:29:10 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void			b_init_nodes(t_stack_node *a_stack, t_stack_node *b_stack);
 // // MOVES
 void			sa(t_stack_node **a_stack);
 void			sb(t_stack_node **b_stack);
-int				swap(t_stack_node **stack);
 void			ra(t_stack_node **a_stack, bool i);
 void			rb(t_stack_node **b_stack, bool i);
 void			rr(t_stack_node **a_stack, t_stack_node **b_stack);
