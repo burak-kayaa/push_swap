@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:40 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 12:36:23 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:33:10 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,22 @@ int	is_in_limit(int argc, char **argv, int i)
 		i++;
 	}
 	return (1);
+}
+
+void	ft_free(t_stack_node **stack)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*current;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
 }

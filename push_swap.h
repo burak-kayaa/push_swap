@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:29:10 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:33:35 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ typedef struct s_stack_node
 	bool				above_median;
 	bool				cheapest;
 	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;		
+	struct s_stack_node	*next;	
 }t_stack_node;
 
 // ARGV CHECKERS
@@ -39,6 +38,7 @@ int				is_in_limit(int argc, char **argv, int i);
 int				is_dupe(char **argv, int argc, int i);
 int				ft_count(char **split);
 int				is_sorted(t_stack_node **a_stack);
+void			ft_free(t_stack_node **stack);
 // ---------------------
 
 // LST FUNCS
