@@ -6,41 +6,45 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 14:14:26 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:27:04 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_stack_node **stack)
+void	sa(t_stack_node **a_stack)
 {
-	int		tmp;
 	t_stack_node	*head;
 	t_stack_node	*next;
+	int				tmp;
 
-	head = *stack;
+	if (!(*a_stack))
+		exit(0);
+	head = *a_stack;
 	next = head->next;
-	if (ft_lstsize(*stack) < 2)
-		return (0);
+	if (ft_lstsize(*a_stack) < 2)
+		return ;
 	tmp = head->nbr;
 	head->nbr = next->nbr;
 	next->nbr = tmp;
-	return (1);
-}
-
-void	sa(t_stack_node **a_stack)
-{
-	if (!(*a_stack))
-		exit(0);
-	swap(a_stack);
 	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_stack_node **b_stack)
 {
+	t_stack_node	*head;
+	t_stack_node	*next;
+	int				tmp;
+
 	if (!(*b_stack))
 		exit(0);
-	swap(b_stack);
+	head = *b_stack;
+	next = head->next;
+	if (ft_lstsize(*b_stack) < 2)
+		return ;
+	tmp = head->nbr;
+	head->nbr = next->nbr;
+	next->nbr = tmp;
 	ft_putendl_fd("sb", 1);
 }
 

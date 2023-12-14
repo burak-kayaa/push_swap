@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:49:54 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 14:30:12 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:21:50 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,44 +61,4 @@ int	ft_lstsize(t_stack_node *lst)
 		i++;
 	}
 	return (i);
-}
-
-t_stack_node	*ft_lstmax(t_stack_node *lst)
-{
-	long			max;
-	t_stack_node	*max_node;
-
-	if (!lst)
-		return (NULL);
-	max = LONG_MIN;
-	while (lst)
-	{
-		if (lst->nbr > max)
-		{
-			max = lst->nbr;
-			max_node = lst;
-		}
-		lst = lst->next;
-	}
-	return (max_node);
-}
-
-t_stack_node	*ft_lstmin(t_stack_node *lst)
-{
-	long			min;
-	t_stack_node	*min_node;
-
-	if (!lst)
-		return (NULL);
-	min = LONG_MAX;
-	while (lst)
-	{
-		if (lst->nbr < min)
-		{
-			min = lst->nbr;
-			min_node = lst;
-		}
-		lst = lst->next;
-	}
-	return (min_node);
 }

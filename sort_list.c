@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:03:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 14:56:06 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:17:38 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sort_3(t_stack_node **a_stack)
 int	get_min_value(t_stack_node **a_stack)
 {
 	t_stack_node	*tmp;
-	int		min;
+	int				min;
 
 	tmp = *a_stack;
 	min = tmp->nbr;

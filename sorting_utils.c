@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:05:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 14:47:24 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:18:29 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, t_stack_node *cheapest_node)
+void	rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, \
+t_stack_node *cheapest_node)
 {
 	while (*b_stack != cheapest_node->target_node && *a_stack != cheapest_node)
 		rr(a_stack, b_stack);
@@ -33,7 +34,8 @@ void	rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, t_stack_node *c
 	current_idx(*b_stack);
 }
 
-void	rev_rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, t_stack_node *cheapest_node)
+void	rev_rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, \
+t_stack_node *cheapest_node)
 {
 	while (*b_stack != cheapest_node->target_node && *a_stack != cheapest_node)
 		rrr(a_stack, b_stack);
@@ -41,7 +43,8 @@ void	rev_rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, t_stack_nod
 	current_idx(*b_stack);
 }
 
-void	preping_to_push(t_stack_node **stack, t_stack_node *top_node, char which_one)
+void	preping_to_push(t_stack_node **stack, t_stack_node *top_node, \
+char which_one)
 {
 	while (*stack != top_node)
 	{

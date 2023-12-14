@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 13:03:37 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:11:13 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:15:26 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ void	current_idx(t_stack_node *stack)
 	}
 }
 
-
 void	choose_node_a(t_stack_node *a_stack, t_stack_node *b_stack)
 {
 	t_stack_node	*current_b;
 	t_stack_node	*target;
 	long			best_one;
-	
+
 	while (a_stack)
 	{
 		best_one = LONG_MIN;

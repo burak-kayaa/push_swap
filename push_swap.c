@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:01:19 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:17:15 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@ char	**checker(int argc, char **argv)
 {
 	char	**split;
 	int		elems;
+
 	if (argc == 2)
 	{
 		split = ft_split(argv[1], ' ');
 		elems = ft_count(split);
-		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0) && is_dupe(split, elems, 0)))
+		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0)
+				&& is_dupe(split, elems, 0)))
 		{
 			ft_printf("error\n");
 			exit(0);
 		}
 		return (split);
 	}
-	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1) && is_dupe(argv, argc, 1)))
+	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1) 
+			&& is_dupe(argv, argc, 1)))
 	{
 		ft_printf("error\n");
 		exit(0);
@@ -39,7 +42,7 @@ void	get_nums(t_stack_node **a_stack, int argc, char **argv)
 {
 	t_stack_node	*new;
 	int				i;
-	
+
 	if (argc == 2)
 		i = 0;
 	else
