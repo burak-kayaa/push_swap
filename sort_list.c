@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:03:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:17:38 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:35:48 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	small_sort(t_stack_node **a_stack, int l_size)
 {
 	if (l_size == 1)
 	{
-		printf("%d\n", (*a_stack)->nbr);
+		ft_printf("%d\n", (*a_stack)->nbr);
 		exit(1);
 	}
 	else if (l_size == 2)

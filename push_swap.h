@@ -6,14 +6,13 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:33:35 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:35:38 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "stdio.h"
 # include "unistd.h"
 # include "stdlib.h"
 # include "./ft_printf/ft_printf.h"
