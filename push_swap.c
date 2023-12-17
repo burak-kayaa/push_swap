@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:33:50 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:18:54 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ int	main(int argc, char **argv)
 
 	a_stack = NULL;
 	b_stack = NULL;
-	(void)(b_stack);
-	(void)(a_stack);
 	argv = checker(argc, argv);
 	get_nums(&a_stack, argc, argv);
 	if (is_sorted(&a_stack))

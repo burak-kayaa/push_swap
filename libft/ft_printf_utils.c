@@ -6,11 +6,11 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:57:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/25 10:56:59 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/06 16:09:22 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_putchar(char c, int *i)
 {

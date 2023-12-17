@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:27:38 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/14 16:27:40 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:58:30 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_in_set(char c, const char *set)
 	return (1);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	size_t	start;
 	size_t	end;

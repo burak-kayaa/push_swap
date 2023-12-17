@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:35:38 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/17 17:56:28 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "unistd.h"
 # include "stdlib.h"
-# include "./ft_printf/ft_printf.h"
+# include "libft/libft.h"
 # include "stdbool.h"
 # include "limits.h"
 

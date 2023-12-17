@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_write_adress.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 14:48:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/26 12:23:55 by burkaya          ###   ########.fr       */
+/*   Created: 2023/10/17 16:59:04 by burkaya           #+#    #+#             */
+/*   Updated: 2023/12/06 16:09:33 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	get_len(unsigned int nbr)
+static int	get_len(unsigned long nbr)
 {
 	int	len;
 
@@ -25,40 +25,36 @@ static int	get_len(unsigned int nbr)
 	return (len);
 }
 
-static char	*ft_check_base(char type)
-{
-	if (type == 'x')
-		return (ft_strdup("0123456789abcdef"));
-	else
-		return (ft_strdup("0123456789ABCDEF"));
-}
-
-static void	ft_check(unsigned int nbr, int *i)
-{
-	if (nbr == 0)
-		ft_putstr("0", i);
-}
-
-void	ft_convert_base(unsigned int nbr, char type, int *i)
+static char	*xtoa(unsigned long nbr)
 {
 	char	*str;
 	int		len;
-	char	*base;
 
-	if (nbr == 0)
-		ft_check(nbr, i);
-	base = ft_check_base(type);
 	len = get_len(nbr);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return ;
+		return (NULL);
 	str[len--] = '\0';
 	while (nbr > 0)
 	{
-		str[len--] = base[nbr % 16];
+		if ((nbr % 16) <= 9)
+			str[len--] = nbr % 16 + '0';
+		else
+			str[len--] = nbr % 16 + 87;
 		nbr /= 16;
 	}
-	ft_putstr(str, i);
-	free(str);
-	free(base);
+	return (str);
+}
+
+void	ft_write_address(unsigned long nb, int *i)
+{
+	char	*add;
+
+	add = xtoa(nb);
+	ft_putchar('0', i);
+	ft_putchar('x', i);
+	if (nb == 0)
+		ft_putchar('0', i);
+	ft_putstr(add, i);
+	free(add);
 }

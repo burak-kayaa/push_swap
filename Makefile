@@ -8,7 +8,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= push_swap
 
-LIB		= libftprintf.a
+LIB		= libft.a
 
 all: $(NAME)
 	clear
@@ -17,15 +17,15 @@ $(NAME): $(OBJS) $(LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
 $(LIB):
-	make -C ./ft_printf
-	cp ./ft_printf/libftprintf.a .
+	make -C ./libft
+	cp ./libft/libft.a .
 
 clean:
 	rm -rf $(OBJS) $(LIB)
-	make clean -C ./ft_printf 
+	make clean -C ./libft 
 
 fclean: clean
 	rm -rf $(NAME)
-	make fclean -C ./ft_printf 
+	make fclean -C ./libft 
 
 re: fclean all

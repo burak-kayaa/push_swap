@@ -1,66 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 16:24:38 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/14 16:24:40 by burkaya          ###   ########.fr       */
+/*   Created: 2023/10/17 14:48:39 by burkaya           #+#    #+#             */
+/*   Updated: 2023/12/06 16:09:28 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_digit(long nbr)
+static int	get_len(unsigned int nbr)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	if (nbr < 0)
-	{
-		i++;
-		nbr *= -1;
-	}
+	len = 0;
 	while (nbr > 0)
 	{
-		i++;
-		nbr /= 10;
+		nbr /= 16;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 
-static char	*ft_check(int n)
+static char	*ft_check_base(char type)
 {
-	if (n == 0)
-		return (ft_strdup("0"));
+	if (type == 'x')
+		return (ft_strdup("0123456789abcdef"));
 	else
-		return (ft_strdup("-2147483648"));
+		return (ft_strdup("0123456789ABCDEF"));
 }
 
-char	*ft_itoa(int n)
+static void	ft_check(unsigned int nbr, int *i)
 {
-	long	nbr;
+	if (nbr == 0)
+		ft_putstr("0", i);
+}
+
+void	ft_convert_base(unsigned int nbr, char type, int *i)
+{
 	char	*str;
 	int		len;
+	char	*base;
 
-	nbr = n;
-	len = ft_digit(nbr);
-	if (n == 0 || n == -2147483648)
-		return (ft_check(n));
+	if (nbr == 0)
+		ft_check(nbr, i);
+	base = ft_check_base(type);
+	len = get_len(nbr);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
-	if (nbr < 0)
-	{
-		str[0] = '-';
-		nbr *= -1;
-	}
+		return ;
 	str[len--] = '\0';
 	while (nbr > 0)
 	{
-		str[len--] = nbr % 10 + '0';
-		nbr /= 10;
+		str[len--] = base[nbr % 16];
+		nbr /= 16;
 	}
-	return (str);
+	ft_putstr(str, i);
+	free(str);
+	free(base);
 }

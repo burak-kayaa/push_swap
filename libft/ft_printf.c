@@ -6,11 +6,11 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:49:12 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/26 12:22:36 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/06 16:09:09 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_find_spec(char *str, int j, int *i, va_list *ap)
 {
@@ -50,7 +50,7 @@ static void	ft_main(char *str, va_list *ap, int *i)
 	}
 }
 
-int	ft_printf(const char *s, ...)
+int	ft_printf(char *s, ...)
 {
 	char	*str;
 	va_list	ap;

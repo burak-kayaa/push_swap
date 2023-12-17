@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:03:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:35:48 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:25:43 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,7 @@ int	get_min_value(t_stack_node **a_stack)
 
 void	small_sort(t_stack_node **a_stack, int l_size)
 {
-	if (l_size == 1)
-	{
-		ft_printf("%d\n", (*a_stack)->nbr);
-		exit(1);
-	}
-	else if (l_size == 2)
+	if (l_size == 2)
 		sa(a_stack);
 	else if (l_size == 3)
 		sort_3(a_stack);

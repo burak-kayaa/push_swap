@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 10:49:19 by burkaya           #+#    #+#             */
-/*   Updated: 2023/10/19 14:15:00 by burkaya          ###   ########.fr       */
+/*   Created: 2023/10/14 16:27:03 by burkaya           #+#    #+#             */
+/*   Updated: 2023/12/06 15:56:03 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+size_t	ft_strlcat(char *dst, char *src, size_t size)
+{
+	size_t	ldst;
+	size_t	lsrc;
+	size_t	i;
 
-int		ft_printf(const char *s, ...);
-void	ft_putchar(char c, int *i);
-void	ft_putstr(char *str, int *i);
-void	ft_putnbr(int nb, int *i);
-void	ft_putnbr_u(unsigned int nb, int *i);
-void	ft_convert_base(unsigned int nbr, char type, int *i);
-void	ft_write_address(unsigned long nb, int *i);
-
-#endif
+	ldst = ft_strlen(dst);
+	lsrc = ft_strlen(src);
+	if (size <= ldst)
+		lsrc += size;
+	else
+		lsrc += ldst;
+	i = 0;
+	while (src[i] && ldst + 1 < size)
+	{
+		dst[ldst] = src[i];
+		i++;
+		ldst++;
+	}
+	dst[ldst] = '\0';
+	return (lsrc);
+}
