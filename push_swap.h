@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 17:56:28 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/17 18:55:40 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int				is_dupe(char **argv, int argc, int i);
 int				ft_count(char **split);
 int				is_sorted(t_stack_node **a_stack);
 void			ft_free(t_stack_node **stack);
+void			get_nums(t_stack_node **a_stack, int argc, char **argv);
 // ---------------------
 
 // LST FUNCS
