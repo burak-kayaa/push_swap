@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/18 17:48:01 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/18 20:09:44 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,30 @@ int	is_sorted(t_stack_node **a_stack)
 	return (1);
 }
 
+void	init_a(t_stack_node *stack)
+{
+	while (stack)
+	{
+		stack->cheapest = false;
+		stack = stack->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a_stack;
 	t_stack_node	*b_stack;
 
+	if (!argv[1] || !argv[1][0])
+	{
+		write(2, "Error\n", 6);
+		exit(0);
+	}
 	a_stack = NULL;
 	b_stack = NULL;
 	argv = checker(argc, argv);
 	get_nums(&a_stack, argc, argv);
+	init_a(a_stack);
 	if (is_sorted(&a_stack))
 	{
 		ft_free(&a_stack);
