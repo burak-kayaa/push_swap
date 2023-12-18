@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 18:28:37 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:48:01 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	**checker(int argc, char **argv)
 		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0)
 				&& is_dupe(split, elems, 0)))
 		{
-			ft_printf("error\n");
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		return (split);
@@ -32,7 +32,7 @@ char	**checker(int argc, char **argv)
 	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1) 
 			&& is_dupe(argv, argc, 1)))
 	{
-		ft_printf("error\n");
+		write(2, "Error\n", 6);
 		exit(0);
 	}
 	return (argv);

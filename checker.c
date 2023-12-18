@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:40 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 18:14:24 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/18 18:05:38 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	is_dupe(char **argv, int argc, int i)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!ft_strncmp(argv[j], argv[i], sizeof(argv[j])))
+			if (!ft_strcmp(argv[j], argv[i]))
 				return (0);
 			j++;
 		}
@@ -69,11 +69,11 @@ int	is_in_limit(int argc, char **argv, int i)
 	int		tmp;
 	char	*check;
 
-	while (i < argc - 1)
+	while (i <= argc - 1)
 	{
-		tmp = ft_atoi(argv[i + 1]);
+		tmp = ft_atoi(argv[i]);
 		check = ft_itoa(tmp);
-		if (ft_strcmp(check, argv[i + 1]))
+		if (ft_strcmp(check, argv[i]))
 		{
 			free(check);
 			return (0);
