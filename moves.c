@@ -6,13 +6,13 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:28:52 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:28:16 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack_node **a_stack)
+void	sa(t_stack_node **a_stack, bool i)
 {
 	t_stack_node	*head;
 	t_stack_node	*next;
@@ -27,10 +27,11 @@ void	sa(t_stack_node **a_stack)
 	tmp = head->nbr;
 	head->nbr = next->nbr;
 	next->nbr = tmp;
-	ft_putendl_fd("sa", 1);
+	if (i == true)
+		ft_putendl_fd("sa", 1);
 }
 
-void	sb(t_stack_node **b_stack)
+void	sb(t_stack_node **b_stack, bool i)
 {
 	t_stack_node	*head;
 	t_stack_node	*next;
@@ -45,7 +46,8 @@ void	sb(t_stack_node **b_stack)
 	tmp = head->nbr;
 	head->nbr = next->nbr;
 	next->nbr = tmp;
-	ft_putendl_fd("sb", 1);
+	if (i == true)
+		ft_putendl_fd("sb", 1);
 }
 
 void	ra(t_stack_node **a_stack, bool i)
@@ -86,9 +88,10 @@ void	rb(t_stack_node **b_stack, bool i)
 	return ;
 }
 
-void	rr(t_stack_node **a_stack, t_stack_node **b_stack)
+void	rr(t_stack_node **a_stack, t_stack_node **b_stack, bool i)
 {
 	ra(a_stack, false);
 	rb(b_stack, false);
-	ft_putendl_fd("rr", 1);
+	if (i == true)
+		ft_putendl_fd("rr", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:03:39 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 14:25:43 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:28:56 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_3(t_stack_node **a_stack)
 	else if ((*a_stack)->next == biggest)
 		rra(a_stack, true);
 	if ((*a_stack)->nbr > (*a_stack)->next->nbr)
-		sa(a_stack);
+		sa(a_stack, true);
 }
 
 int	get_min_value(t_stack_node **a_stack)
@@ -44,7 +44,7 @@ int	get_min_value(t_stack_node **a_stack)
 void	small_sort(t_stack_node **a_stack, int l_size)
 {
 	if (l_size == 2)
-		sa(a_stack);
+		sa(a_stack, true);
 	else if (l_size == 3)
 		sort_3(a_stack);
 }

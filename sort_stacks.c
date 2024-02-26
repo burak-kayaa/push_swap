@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:58:27 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/14 15:14:59 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:29:40 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static void	push_to_b(t_stack_node **a_stack, t_stack_node **b_stack)
 		rev_rotate_them(a_stack, b_stack, cheapest_node);
 	preping_to_push(a_stack, cheapest_node, 'a');
 	preping_to_push(b_stack, cheapest_node->target_node, 'b');
-	pb(a_stack, b_stack);
+	pb(a_stack, b_stack, true);
 }
 
 static void	push_to_a(t_stack_node **a_stack, t_stack_node **b_stack)
 {
 	preping_to_push(a_stack, (*b_stack)->target_node, 'a');
-	pa(a_stack, b_stack);
+	pa(a_stack, b_stack, true);
 }
 
 static void	min_to_top(t_stack_node **a_stack)
@@ -51,9 +51,9 @@ void	sort_stacks(t_stack_node **a_stack, t_stack_node **b_stack)
 
 	a_len = ft_lstsize(*a_stack);
 	if (a_len-- > 3 && !is_sorted(a_stack))
-		pb(a_stack, b_stack);
+		pb(a_stack, b_stack, true);
 	if (a_len-- > 3 && !is_sorted(a_stack))
-		pb(a_stack, b_stack);
+		pb(a_stack, b_stack, true);
 	while (a_len-- > 3 && !is_sorted(a_stack))
 	{
 		a_init_nodes(*a_stack, *b_stack);

@@ -30,11 +30,11 @@ bonus: $(OBJSB) $(LIB)
 	$(CC) $(CFLAGS) $(OBJSB) $(LIB) -o $(BONUS)
 
 clean:
-	rm -rf $(OBJS) $(LIB)
+	rm -rf $(OBJS) $(LIB) $(OBJSB)
 	make clean -C ./libft 
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS)
 	make fclean -C ./libft 
 
 re: fclean all

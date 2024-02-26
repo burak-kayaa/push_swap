@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 18:55:40 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:49:27 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ typedef struct s_stack_node
 	bool				cheapest;
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;	
-}t_stack_node;
-
-// ARGV CHECKERS
+}	t_stack_node;
 int				is_nbr(int argc, char **argv, int i);
 char			**checker(int argc, char **argv);
 int				is_in_limit(int argc, char **argv, int i);
@@ -39,9 +37,6 @@ int				ft_count(char **split);
 int				is_sorted(t_stack_node **a_stack);
 void			ft_free(t_stack_node **stack);
 void			get_nums(t_stack_node **a_stack, int argc, char **argv);
-// ---------------------
-
-// LST FUNCS
 t_stack_node	*ft_lstnew(int nbr);
 t_stack_node	*ft_lstlast(t_stack_node *lst);
 void			ft_lstadd_back(t_stack_node **alst, t_stack_node *new);
@@ -49,9 +44,6 @@ int				ft_lstsize(t_stack_node *lst);
 int				get_min_value(t_stack_node **a_stack);
 t_stack_node	*ft_lstmax(t_stack_node *lst);
 t_stack_node	*ft_lstmin(t_stack_node *lst);
-// // ------------------
-
-// SORT FUNCS
 void			sort_list(t_stack_node **a_stack, t_stack_node **b_stack);
 void			sort_3(t_stack_node **a_stack);
 void			a_init_nodes(t_stack_node *a_stack, t_stack_node *b_stack);
@@ -65,20 +57,15 @@ void			preping_to_push(t_stack_node **stack, t_stack_node *top_node, \
 void			sort_stacks(t_stack_node **a_stack, t_stack_node **b_stack);
 t_stack_node	*get_cheapest(t_stack_node *stack);
 void			b_init_nodes(t_stack_node *a_stack, t_stack_node *b_stack);
-
-// // --------------------
-
-// // MOVES
-void			sa(t_stack_node **a_stack);
-void			sb(t_stack_node **b_stack);
+void			sa(t_stack_node **a_stack, bool i);
+void			sb(t_stack_node **b_stack, bool i);
 void			ra(t_stack_node **a_stack, bool i);
 void			rb(t_stack_node **b_stack, bool i);
-void			rr(t_stack_node **a_stack, t_stack_node **b_stack);
-void			pb(t_stack_node **a_stack, t_stack_node **b_stack);
-void			pa(t_stack_node **a_stack, t_stack_node **b_stack);
+void			rr(t_stack_node **a_stack, t_stack_node **b_stack, bool i);
+void			pb(t_stack_node **a_stack, t_stack_node **b_stack, bool i);
+void			pa(t_stack_node **a_stack, t_stack_node **b_stack, bool i);
 void			rra(t_stack_node **a_stack, bool i);
 void			rrb(t_stack_node **b_stack, bool i);
-void			rrr(t_stack_node **a_stack, t_stack_node **b_stack);
-// ------------------
+void			rrr(t_stack_node **a_stack, t_stack_node **b_stack, bool i);
 
 #endif

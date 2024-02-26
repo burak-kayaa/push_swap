@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/18 20:09:44 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 14:42:20 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	**checker(int argc, char **argv)
 		}
 		return (split);
 	}
-	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1) 
+	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1)
 			&& is_dupe(argv, argc, 1)))
 	{
 		write(2, "Error\n", 6);
@@ -92,10 +92,7 @@ int	main(int argc, char **argv)
 	t_stack_node	*b_stack;
 
 	if (!argv[1] || !argv[1][0])
-	{
-		write(2, "Error\n", 6);
 		exit(0);
-	}
 	a_stack = NULL;
 	b_stack = NULL;
 	argv = checker(argc, argv);

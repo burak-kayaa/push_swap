@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:00:17 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 20:38:46 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/02/26 18:04:32 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 void	do_move(t_stack_node **a_stack, t_stack_node **b_stack, char *move)
 {
-	if (!ft_strcmp("sa", move))
-		sa(a_stack);
-	else if (!ft_strcmp("sb", move))
-		sb(b_stack);
-	else if (!ft_strcmp("sb", move))
-		sb(b_stack);
-	else if (!ft_strcmp("ra", move))
+	if (!ft_strcmp("sa\n", move))
+		sa(a_stack, 0);
+	else if (!ft_strcmp("sb\n", move))
+		sb(b_stack, 0);
+	else if (!ft_strcmp("sb\n", move))
+		sb(b_stack, 0);
+	else if (!ft_strcmp("ra\n", move))
 		ra(a_stack, 0);
-	else if (!ft_strcmp("rb", move))
+	else if (!ft_strcmp("rb\n", move))
 		rb(b_stack, 0);
-	else if (!ft_strcmp("rr", move))
-		rr(a_stack, b_stack);
-	else if (!ft_strcmp("pb", move))
-		pb(a_stack, b_stack);
-	else if (!ft_strcmp("pa", move))
-		pa(a_stack, b_stack);
-	else if (!ft_strcmp("rra", move))
+	else if (!ft_strcmp("rr\n", move))
+		rr(a_stack, b_stack, 0);
+	else if (!ft_strcmp("pb\n", move))
+		pb(a_stack, b_stack, 0);
+	else if (!ft_strcmp("pa\n", move))
+		pa(a_stack, b_stack, 0);
+	else if (!ft_strcmp("rra\n", move))
 		rra(a_stack, 0);
-	else if (!ft_strcmp("rrb", move))
+	else if (!ft_strcmp("rrb\n", move))
 		rrb(b_stack, 0);
-	else if (!ft_strcmp("rrr", move))
-		rrr(a_stack, b_stack);
+	else if (!ft_strcmp("rrr\n", move))
+		rrr(a_stack, b_stack, 0);
+	else
+		(ft_printf("Error\n"), exit(0));
 }
 
 char	**checker(int argc, char **argv)
@@ -50,15 +52,15 @@ char	**checker(int argc, char **argv)
 		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0)
 				&& is_dupe(split, elems, 0)))
 		{
-			ft_printf("error\n");
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		return (split);
 	}
-	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1) 
+	else if (!(is_nbr(argc, argv, 1) && is_in_limit(argc, argv, 1)
 			&& is_dupe(argv, argc, 1)))
 	{
-		ft_printf("error\n");
+		write(2, "Error\n", 6);
 		exit(0);
 	}
 	return (argv);
@@ -109,26 +111,23 @@ int	main(int argc, char **argv)
 	t_stack_node	*b_stack;
 	char			*move;
 
+	if (!argv[1] || !argv[1][0])
+		exit(0);
 	a_stack = NULL;
 	b_stack = NULL;
 	argv = checker(argc, argv);
 	get_nums(&a_stack, argc, argv);
-	if (is_sorted(&a_stack))
-		return (ft_free(&a_stack), 0);
 	move = get_next_line(0);
-	sort_stacks(&a_stack, &b_stack);
-	ft_printf("%s\n", move);
+	if (is_sorted(&a_stack))
+		return (ft_free(&a_stack), ft_printf("OK\n"), 0);
 	while (move)
 	{
 		do_move(&a_stack, &b_stack, move);
 		free(move);
 		move = get_next_line(0);
 	}
-	if (is_sorted(&a_stack))
-	{
-		if (!b_stack)
-			ft_printf("OK\n");
-	}
+	if (is_sorted(&a_stack) && !b_stack)
+		return (ft_free(&a_stack), ft_printf("OK\n"), 1);
 	else
-		ft_printf("KO\n");
+		return (ft_free(&a_stack), ft_printf("KO\n"), 1);
 }

@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:05:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/18 18:37:31 by burkaya          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:29:53 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, \
 t_stack_node *cheapest_node)
 {
 	while (*b_stack != cheapest_node->target_node && *a_stack != cheapest_node)
-		rr(a_stack, b_stack);
+		rr(a_stack, b_stack, true);
 	current_idx(*a_stack);
 	current_idx(*b_stack);
 }
@@ -38,7 +38,7 @@ void	rev_rotate_them(t_stack_node **a_stack, t_stack_node **b_stack, \
 t_stack_node *cheapest_node)
 {
 	while (*b_stack != cheapest_node->target_node && *a_stack != cheapest_node)
-		rrr(a_stack, b_stack);
+		rrr(a_stack, b_stack, true);
 	current_idx(*a_stack);
 	current_idx(*b_stack);
 }
