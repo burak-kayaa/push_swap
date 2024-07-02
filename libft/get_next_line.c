@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:09:19 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/06 16:02:54 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 17:49:09 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff);
+		left_str = ft_strjoin_gnl(left_str, buff);
 		if (!left_str)
 			return (free(buff), NULL);
 	}

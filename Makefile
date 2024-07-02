@@ -8,7 +8,7 @@ OBJSB	= $(SRCSB:.c=.o)
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
 NAME	= push_swap
 

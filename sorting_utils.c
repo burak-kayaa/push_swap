@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:05:34 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/19 13:29:53 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:08:37 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,17 @@ char which_one)
 				rrb(stack, true);
 		}
 	}
+}
+
+void	ft_free_split(char **split, int elems)
+{
+	int	i;
+
+	i = 0;
+	while (i < elems)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }

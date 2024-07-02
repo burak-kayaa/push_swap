@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:08 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/17 17:57:17 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 17:49:41 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*get_next_line(int fd);
 char	*ft_read_to_left_str(int fd, char *left_str);
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
+char	*ft_strjoin_gnl(char *left_str, char *buff);
 int		ft_printf(char *s, ...);
 void	ft_putchar(char c, int *i);
 void	ft_putstr(char *str, int *i);

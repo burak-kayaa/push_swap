@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/19 14:42:20 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:08:32 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ char	**checker(int argc, char **argv)
 	{
 		split = ft_split(argv[1], ' ');
 		elems = ft_count(split);
-		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0)
-				&& is_dupe(split, elems, 0)))
+		if (elems == 0 || !(is_nbr(elems, split, 0)
+				&& is_in_limit(elems, split, 0) && is_dupe(split, elems, 0)))
 		{
+			ft_free_split(split, elems);
 			write(2, "Error\n", 6);
-			exit(0);
+			exit(1);
 		}
 		return (split);
 	}
@@ -33,7 +34,7 @@ char	**checker(int argc, char **argv)
 			&& is_dupe(argv, argc, 1)))
 	{
 		write(2, "Error\n", 6);
-		exit(0);
+		exit(1);
 	}
 	return (argv);
 }
@@ -92,7 +93,10 @@ int	main(int argc, char **argv)
 	t_stack_node	*b_stack;
 
 	if (!argv[1] || !argv[1][0])
-		exit(0);
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	a_stack = NULL;
 	b_stack = NULL;
 	argv = checker(argc, argv);

@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:40 by burkaya           #+#    #+#             */
-/*   Updated: 2023/12/18 18:22:50 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:13:15 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_nbr(int argc, char **argv, int i)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (argv[i][0] == '-')
+			if (argv[i][0] == '-' || argv[i][0] == '+')
 			{
 				j++;
 				break ;
@@ -48,17 +48,28 @@ int	is_nbr(int argc, char **argv, int i)
 
 int	is_dupe(char **argv, int argc, int i)
 {
-	int	j;
+	int		j;
+	char	*tmp1;
+	char	*tmp2;
+	char	*tmp3;
 
 	while (i < argc)
 	{
-		j = i + 1;
-		while (j < argc)
+		tmp1 = ft_strdup(argv[i]);
+		if (argv[i][0] == '+')
+			tmp1++;
+		j = i;
+		while (++j < argc)
 		{
-			if (!ft_strcmp(argv[j], argv[i]))
-				return (0);
-			j++;
+			tmp2 = ft_strdup(argv[j]);
+			tmp3 = tmp2;
+			if (argv[j][0] == '+')
+				tmp2++;
+			if (!ft_strcmp(tmp2, tmp1))
+				return (free(tmp1), free(tmp3), 0);
+			free(tmp2);
 		}
+		free(tmp1);
 		i++;
 	}
 	return (1);
@@ -68,16 +79,23 @@ int	is_in_limit(int argc, char **argv, int i)
 {
 	int		tmp;
 	char	*check;
+	char	*tmp_str;
 
 	while (i <= argc - 1)
 	{
 		tmp = ft_atoi(argv[i]);
-		check = ft_itoa(tmp);
+		tmp_str = ft_itoa(tmp);
+		if (argv[i][0] == '+')
+			check = ft_strjoin("+", tmp_str);
+		else
+			check = ft_strdup(tmp_str);
 		if (ft_strcmp(check, argv[i]))
 		{
 			free(check);
+			free(tmp_str);
 			return (0);
 		}
+		free(tmp_str);
 		free(check);
 		i++;
 	}

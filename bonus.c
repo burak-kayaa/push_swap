@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:00:17 by burkaya           #+#    #+#             */
-/*   Updated: 2024/02/26 18:04:32 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:10:30 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,12 @@ char	**checker(int argc, char **argv)
 	{
 		split = ft_split(argv[1], ' ');
 		elems = ft_count(split);
-		if (!(is_nbr(elems, split, 0) && is_in_limit(elems, split, 0)
-				&& is_dupe(split, elems, 0)))
+		if (elems == 0 || !(is_nbr(elems, split, 0)
+				&& is_in_limit(elems, split, 0) && is_dupe(split, elems, 0)))
 		{
+			ft_free_split(split, elems);
 			write(2, "Error\n", 6);
-			exit(0);
+			exit(1);
 		}
 		return (split);
 	}
@@ -61,7 +62,7 @@ char	**checker(int argc, char **argv)
 			&& is_dupe(argv, argc, 1)))
 	{
 		write(2, "Error\n", 6);
-		exit(0);
+		exit(1);
 	}
 	return (argv);
 }
