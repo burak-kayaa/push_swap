@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:23:34 by burkaya           #+#    #+#             */
-/*   Updated: 2024/07/02 18:08:52 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:22:53 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;	
 }	t_stack_node;
+
+typedef struct s_tmps
+{
+	char	*tmp1;
+	char	*tmp2;
+	char	*tmp3;
+	char	*tmp4;
+}	t_tmps;
+
 int				is_nbr(int argc, char **argv, int i);
 char			**checker(int argc, char **argv);
 int				is_in_limit(int argc, char **argv, int i);

@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:49 by burkaya           #+#    #+#             */
-/*   Updated: 2024/07/02 18:08:32 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:29:21 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int	main(int argc, char **argv)
 	t_stack_node	*a_stack;
 	t_stack_node	*b_stack;
 
+	if (argc == 1)
+		return (0);
 	if (!argv[1] || !argv[1][0])
 	{
 		write(2, "Error\n", 6);

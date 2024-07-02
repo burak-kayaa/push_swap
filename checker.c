@@ -6,7 +6,7 @@
 /*   By: burkaya <burkaya@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:22:40 by burkaya           #+#    #+#             */
-/*   Updated: 2024/07/02 18:13:15 by burkaya          ###   ########.fr       */
+/*   Updated: 2024/07/02 18:28:19 by burkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,26 @@ int	is_nbr(int argc, char **argv, int i)
 int	is_dupe(char **argv, int argc, int i)
 {
 	int		j;
-	char	*tmp1;
-	char	*tmp2;
-	char	*tmp3;
+	t_tmps	tmps;
 
 	while (i < argc)
 	{
-		tmp1 = ft_strdup(argv[i]);
+		tmps.tmp1 = ft_strdup(argv[i]);
+		tmps.tmp4 = tmps.tmp1;
 		if (argv[i][0] == '+')
-			tmp1++;
+			tmps.tmp1++;
 		j = i;
 		while (++j < argc)
 		{
-			tmp2 = ft_strdup(argv[j]);
-			tmp3 = tmp2;
+			tmps.tmp2 = ft_strdup(argv[j]);
+			tmps.tmp3 = tmps.tmp2;
 			if (argv[j][0] == '+')
-				tmp2++;
-			if (!ft_strcmp(tmp2, tmp1))
-				return (free(tmp1), free(tmp3), 0);
-			free(tmp2);
+				tmps.tmp2++;
+			if (!ft_strcmp(tmps.tmp2, tmps.tmp1))
+				return (free(tmps.tmp4), free(tmps.tmp3), 0);
+			free(tmps.tmp2);
 		}
-		free(tmp1);
+		free(tmps.tmp4);
 		i++;
 	}
 	return (1);
